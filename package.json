@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@livepeer/react": "^2.1.0",
+    "yarn": "^1.22.19",
+    "yrn": "^1.1.9"
+  }
+}
