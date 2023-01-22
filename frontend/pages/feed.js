@@ -2,18 +2,47 @@
 import Video from "components/Video";
 import { VideoComponent } from "components/LiveVideoContainer";
 import styled from "styled-components";
+import { Heart, ChatCircle, PaperPlaneTilt } from "phosphor-react";
+import FeedProduct from "components/FeedProduct";
 
 const RightAreaBox = styled.div`
   max-height: calc(100vh - 150px);
   position: absolute;
   z-index: 6;
-  bottom: 12px;
+  bottom: 11vh;
   width: 49px;
   right: 12px;
-  margin-bottom: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  height: 300px;
+  opacity: 85%;
+`;
+
+const Avatar = styled.div`
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: relative;
+  background-size: 100% 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  overflow: visible;
+  width: 50px;
+  height: 50px;
+`;
+
+const LeftAreaBox = styled.div`
+  width: 300px;
+  height: 200px;
+  border: solid 1px black;
+  position: absolute;
+  z-index: 6;
+  bottom: 11vh;
+  left: 12px;
 `;
 
 export default function Page() {
@@ -60,14 +89,19 @@ export default function Page() {
     },
   ];
 
+  const pfp = "'./cuteghost.jpg'";
+
   return (
     <div>
       <RightAreaBox>
-        <div>Profile</div>
-        <div>Like</div>
-        <div>Comment</div>
-        <div>Share</div>
+        <Avatar style={{ backgroundImage: `url(${pfp})` }} />
+        <Heart size={40} weight="fill" color="white" />
+        <ChatCircle size={40} weight="fill" color="white" />
+        <PaperPlaneTilt size={40} weight="fill" color="white" />
       </RightAreaBox>
+      <LeftAreaBox>
+        <FeedProduct />
+      </LeftAreaBox>
       <Video source="/videos/PhoneCase.mp4" />
     </div>
   );
