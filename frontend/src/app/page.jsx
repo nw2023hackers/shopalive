@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
-import { client, challenge, authenticate } from '../../api';
+import { client, challenge, authenticate, createPost } from '../../api';
 
 export default function Home() {
 	/* local state variables to hold user's address and access token */
@@ -59,6 +59,15 @@ export default function Home() {
 			console.log('Error signing in: ', err);
 		}
 	}
+	async function createStreamerPost() {
+		try {
+			const postData = await client.mutate({
+				mutation: createPost,
+			});
+		} catch (err) {
+			console.log('Error posting stream: ', err);
+		}
+	}
 
 	return (
 		<div>
@@ -72,6 +81,11 @@ export default function Home() {
 			)}
 			{/* once the user has authenticated, show them a success message */}
 			{address && token && <h2>Successfully signed in!</h2>}
+			{address && token && (
+				<div onClick={createStreamerPost}>
+					<button>Login</button>
+				</div>
+			)}
 		</div>
 	);
 }
