@@ -4,7 +4,7 @@ import styled from "styled-components";
 import OnboardingBlock from "../components/onboarding/OnboardingBlock";
 import Button from "../components/Button";
 import { useState } from "react";
-import Router from 'next/router'
+import Router from "next/router";
 
 const OnboardingContainer = styled.div`
   display: flex;
@@ -20,51 +20,51 @@ const TopicsContainer = styled.div`
   display: grid;
   gap: 20px;
   grid-template-columns: auto auto auto;
-`
+`;
 
 const topicOptions = [
   {
     icon: "",
-    value: "Clothes"
+    value: "Clothes",
   },
   {
     icon: "",
-    value: "Computers"
+    value: "Computers",
   },
   {
     icon: "",
-    value: "Audio"
+    value: "Audio",
   },
   {
     icon: "",
-    value: "Home"
+    value: "Home",
   },
   {
     icon: "",
-    value: "Kitchen"
+    value: "Kitchen",
   },
   {
     icon: "",
-    value: "Garden"
-  },    
-]
+    value: "Garden",
+  },
+];
 
 export default function Page() {
-  const [selected, setSelected] = useState(new Set([]))
-  
+  const [selected, setSelected] = useState(new Set([]));
+
   const handleSelect = (value) => {
-    const newSelected = new Set(selected)
-    if(newSelected.has(value)) {
-      newSelected.delete(value)
+    const newSelected = new Set(selected);
+    if (newSelected.has(value)) {
+      newSelected.delete(value);
     } else {
-      newSelected.add(value)
+      newSelected.add(value);
     }
-    setSelected(newSelected)
-  }
+    setSelected(newSelected);
+  };
 
   const handleStartShopping = () => {
-    Router.push("/home")
-  }
+    Router.push("/home");
+  };
 
   return (
     <OnboardingContainer>
@@ -72,12 +72,18 @@ export default function Page() {
       <p>Select at least 3</p>
       <TopicsContainer>
         {topicOptions.map((topic, i) => {
-          return(
-            <OnboardingBlock key={i} value={topic.value} onSelect={handleSelect}/>
-          )
+          return (
+            <OnboardingBlock
+              key={i}
+              value={topic.value}
+              onSelect={handleSelect}
+            />
+          );
         })}
       </TopicsContainer>
-      <Button onClick={handleStartShopping} disabled={selected.size < 3}>Start shopping</Button>
+      <Button onClick={handleStartShopping} disabled={selected.size < 3}>
+        Start shopping
+      </Button>
     </OnboardingContainer>
   );
 }
