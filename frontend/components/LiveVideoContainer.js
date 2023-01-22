@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Video from "./Video";
 
+
 const VideoContentContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -101,6 +102,8 @@ const videos = [
     username: "@cowjuh",
   },
 ];
+
+
 
 function LiveVideoContainer() {
   return (

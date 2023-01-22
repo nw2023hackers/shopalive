@@ -86,8 +86,8 @@ function FeedProduct() {
   };
 
   const handleOnCloseCheckout = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -102,8 +102,7 @@ function FeedProduct() {
         </TextContent>
       </ProductWrap>
       <CheckoutWrapper>
-
-      {isOpen && <Checkout onClose={handleOnCloseCheckout}/>}
+        {isOpen && <Checkout onClose={handleOnCloseCheckout} />}
       </CheckoutWrapper>
     </>
   );

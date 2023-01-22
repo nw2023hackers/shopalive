@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const TopTenDiv = styled.div`
+  margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
