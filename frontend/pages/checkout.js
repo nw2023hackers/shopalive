@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { X } from "phosphor-react";
 
 const Wrapper = styled.div`
   position: absolute;
-  top: 0;
+  display: block;
+  width: 100vw;
+  height: 90vh;
+  top: -500px;
   right: 0;
   bottom: 0;
-  left: 0;
+  left: -12px;
   z-index: 100;
 `;
 
 const ProductPage = styled.div`
-  height: calc(100% - 52px);
+  border: solid 1px black;
+  height: 100%;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -50,7 +54,7 @@ const ProductTitle = styled.h3`
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  margin-left: 4em;
+  margin-left: 3em;
 `;
 
 const Button = styled.button`
@@ -68,25 +72,86 @@ const Button = styled.button`
 
 const ProductImage = styled.div`
   width: 100%;
-  height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
 `;
 
-function checkout() {
+const BottomContainer = styled.div`
+  position: relative;
+  padding: 17px 18px 15px;
+`;
+
+const Price = styled.div`
+  position: relative;
+  margin-top: 10px;
+  padding-right: 111px;
+  margin-top: 2px;
+  line-height: 25px;
+  color: #000;
+  display: inline-block;
+  font-size: 21px;
+  font-weight: bold;
+  letter-spacing: -0.8px;
+  vertical-align: top;
+`;
+
+const ProductDescription = styled.h3`
+  font-size: 22px;
+  font-weight: normal;
+  line-height: 26px;
+  word-wrap: break-word;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  display: block;
+`;
+
+const BuyNow = styled.div`
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  bottom: 0;
+  width: 80%;
+  background: black;
+  justify-content: space-around;
+  height: 7vh;
+  align-items: center;
+  color: white;
+  margin-bottom: 7vh;
+  margin-left: 2.5rem;
+  font-size: 24px;
+  border-radius: 8px;
+`;
+
+const image = "./images/CaseProduct.png";
+const productDescription =
+  "My Product Description Goes Here. My Product Description Goes Here.";
+const productPrice = "$000.00";
+
+function Checkout({onClose}) {
+
   return (
     <Wrapper>
       <ProductPage>
         <ProductTitleWrap>
           <ProductTitle>Product Title</ProductTitle>
           <Button>
-            <X size={32} weight="fill" />
+            <X size={32} weight="fill" onClick={onClose}/>
           </Button>
         </ProductTitleWrap>
+        <ProductImage>
+          <img src={image} style={{ width: "100vw" }} />
+        </ProductImage>
+        <BottomContainer>
+          <ProductDescription>{productDescription}</ProductDescription>
+          <Price>{productPrice}</Price>
+        </BottomContainer>
+        <BuyNow>Buy Now</BuyNow>
       </ProductPage>
     </Wrapper>
   );
 }
 
-export default checkout;
+export default Checkout;
