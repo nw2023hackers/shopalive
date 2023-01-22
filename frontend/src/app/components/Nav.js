@@ -1,13 +1,20 @@
+"use client";
 import React from "react";
 import styled from "styled-components";
 import NavButton from "./NavButton";
+import Link from "next/link";
 import { House, Fire, MagnifyingGlass, Bag, User } from "phosphor-react";
-import Link from 'next/link';
 
 const NavBar = styled.nav`
   display: flex;
   position: absolute;
+  flex-direction: row;
   bottom: 0;
+  width: 100%;
+  background: black;
+  justify-content: space-around;
+  height: 7vh;
+  align-items: center;
 `;
 
 function Nav() {
@@ -15,21 +22,31 @@ function Nav() {
   // button onClick functionality
   return (
     <NavBar>
-      <NavButton text="Home">
-        <House size={32} />
-      </NavButton>
-      <NavButton text="Feed">
-        <Fire size={32} />
-      </NavButton>
-      <NavButton text="Search">
-        <MagnifyingGlass size={32} />
-      </NavButton>
-      <NavButton text="Orders">
-        <Bag size={32} />
-      </NavButton>
-      <NavButton text="Account">
-        <User size={32} />
-      </NavButton>
+      <Link href="/home">
+        <NavButton text="Home">
+          <House size={24} />
+        </NavButton>
+      </Link>
+      <Link href="/feed">
+        <NavButton text="Feed">
+          <Fire size={24} />
+        </NavButton>
+      </Link>
+      <Link href="/search">
+        <NavButton text="Search">
+          <MagnifyingGlass size={24} />
+        </NavButton>
+      </Link>
+      <Link href="/orders">
+        <NavButton text="Orders">
+          <Bag size={24} />
+        </NavButton>
+      </Link>
+      <Link href="/account">
+        <NavButton text="Account">
+          <User size={24} />
+        </NavButton>
+      </Link>
     </NavBar>
   );
 }
