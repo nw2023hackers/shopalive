@@ -27,72 +27,82 @@ function TopTen() {
         <TopTenDiv>
           <TopTenContainer
             picture="/images/mug.jpg"
+            disc="10%"
+            price="$1.99"
             title="Simple Mug"
             desc="This is a mug. This is a mug."
-            price="$1.99"
             href=""
           />
           <TopTenContainer
             picture="/images/mug.jpg"
+            disc="10%"
+            price="$1.99"
             title="Simple Mug"
             desc="This is a mug. This is a mug."
-            price="$1.99"
             href=""
           />
           <TopTenContainer
             picture="/images/mug.jpg"
+            disc="10%"
+            price="$1.99"
             title="Simple Mug"
             desc="This is a mug. This is a mug."
-            price="$1.99"
             href=""
           />
           <TopTenContainer
             picture="/images/mug.jpg"
+            disc="10%"
+            price="$1.99"
             title="Simple Mug"
             desc="This is a mug. This is a mug."
-            price="$1.99"
             href=""
           />
           <TopTenContainer
             picture="/images/mug.jpg"
+            disc="10%"
+            price="$1.99"
             title="Simple Mug"
             desc="This is a mug. This is a mug."
-            price="$1.99"
             href=""
           />
           <TopTenContainer
             picture="/images/mug.jpg"
+            disc="10%"
+            price="$1.99"
             title="Simple Mug"
             desc="This is a mug. This is a mug."
-            price="$1.99"
             href=""
           />
           <TopTenContainer
             picture="/images/mug.jpg"
+            disc="10%"
+            price="$1.99"
             title="Simple Mug"
             desc="This is a mug. This is a mug."
-            price="$1.99"
             href=""
           />
           <TopTenContainer
             picture="/images/mug.jpg"
+            disc="10%"
+            price="$1.99"
             title="Simple Mug"
             desc="This is a mug. This is a mug."
-            price="$1.99"
             href=""
           />
           <TopTenContainer
             picture="/images/mug.jpg"
+            disc="10%"
+            price="$1.99"
             title="Simple Mug"
             desc="This is a mug. This is a mug."
-            price="$1.99"
             href=""
           />
           <TopTenContainer
             picture="/images/mug.jpg"
+            disc="10%"
+            price="$1.99"
             title="Simple Mug"
             desc="This is a mug. This is a mug."
-            price="$1.99"
             href=""
           />
         </TopTenDiv>
