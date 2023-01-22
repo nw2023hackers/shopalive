@@ -71,11 +71,11 @@ const CheckoutWrapper = styled.div`
 `;
 
 const image = "./images/CaseProduct.png";
-const videoTitle = "My Title My Title My Title My Title My Title My Title ";
+const videoTitle = "Plain Phone Case";
 const videoDescription =
-  "My Description My Description My Description My Description";
+  "iPhone 11 Pro Max phone case combining a trendy tone with a dazzling cactus green.";
 const productTitle = "Product Title and and and Description";
-const productPrice = "$99.00";
+const productPrice = "$49.99";
 
 function FeedProduct() {
   const [isOpen, setIsOpen] = useState(false);
