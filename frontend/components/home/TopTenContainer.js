@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const TopTenDiv = styled.div`
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
@@ -46,7 +47,12 @@ const Price = styled.div`
   float: right;
 `;
 
-function TopTenContainer({ picture, title, desc, price, href }) {
+const Discount = styled.span`
+  font-size: 12px;
+  color: red;
+`;
+
+function TopTenContainer({ picture, title, desc, price, disc, href }) {
   return (
     <Link href={href}>
       <TopTenDiv>
@@ -54,9 +60,11 @@ function TopTenContainer({ picture, title, desc, price, href }) {
           <Image src={picture} alt="" width={110} height={120} />
         </ImageContainer>
         <InfoContainer>
+          <Price>
+            <Discount>{disc}</Discount> {price}
+          </Price>
           <Title>{title}</Title>
           <Desc>{desc}</Desc>
-          <Price>{price}</Price>
         </InfoContainer>
       </TopTenDiv>
     </Link>

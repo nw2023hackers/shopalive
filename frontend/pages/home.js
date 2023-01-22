@@ -13,8 +13,8 @@ export default function Page() {
 	return (
 		<div>
 			<CategoryList />
-			<Filters />
 			<Ad />
+			{/* <Filters /> */}
 			<Live />
 			<TopTen />
 			

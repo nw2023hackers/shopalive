@@ -7,13 +7,13 @@ const ImageContainer = styled.div`
   height: 110px;
   border-radius: 10px;
   overflow: hidden;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 30px auto;
 `;
 
 function Ad() {
   return (
     <ImageContainer>
-      <Image src="/images/steve.png" alt="" width={300} height={110} />
+      <Image src="/images/livepeer.jpg" alt="" width={300} height={150} />
     </ImageContainer>
   );
 }

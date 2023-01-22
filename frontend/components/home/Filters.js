@@ -14,7 +14,7 @@ const FiltersDiv = styled.div`
   flex-direction: row;
   justify-content: space-around;
   font-family: "Roboto", sans-serif;
-  margin: 0 auto 15px auto;
+  margin: 30px auto 0px auto;
 `;
 
 function Filters() {

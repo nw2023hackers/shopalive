@@ -2,8 +2,9 @@
 import Video from "components/Video";
 import { VideoComponent } from "components/LiveVideoContainer";
 import styled from "styled-components";
-import { Heart, ChatCircle, PaperPlaneTilt } from "phosphor-react";
+import { Heart, ChatCircle, PaperPlaneTilt, X } from "phosphor-react";
 import FeedProduct from "components/FeedProduct";
+import Link from "next/link";
 
 const RightAreaBox = styled.div`
   max-height: calc(100vh - 150px);
@@ -38,7 +39,6 @@ const Avatar = styled.div`
 const LeftAreaBox = styled.div`
   width: 300px;
   height: 200px;
-  border: solid 1px black;
   position: absolute;
   z-index: 6;
   bottom: 11vh;
@@ -90,9 +90,17 @@ export default function Page() {
   ];
 
   const pfp = "'./cuteghost.jpg'";
+  const source = "/videos/PhoneCase.mp4"
 
   return (
     <div>
+      <div
+        style={{ position: "absolute", marginTop: "1.5rem", marginLeft: "22rem" }}
+      >
+        <Link href="/home">
+          <X size={40} weight="fill" color="white" />
+        </Link>
+      </div>
       <RightAreaBox>
         <Avatar style={{ backgroundImage: `url(${pfp})` }} />
         <Heart size={40} weight="fill" color="white" />
@@ -100,9 +108,9 @@ export default function Page() {
         <PaperPlaneTilt size={40} weight="fill" color="white" />
       </RightAreaBox>
       <LeftAreaBox>
-        <FeedProduct />
+        <FeedProduct avatar={pfp} />
       </LeftAreaBox>
-      <Video source="/videos/PhoneCase.mp4" />
+      <Video source={source} />
     </div>
   );
 }

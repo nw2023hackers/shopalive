@@ -1,6 +1,16 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, { keyframes } from "styled-components";
 import FeedDescription from "./FeedDescription";
+import Checkout from "pages/Checkout";
+
+const slideUp = keyframes`
+  from {
+    height: 0;
+  }
+  to {
+    height: 200px;
+  }
+`;
 
 const ProductWrap = styled.div`
   position: relative;
@@ -54,7 +64,13 @@ const Price = styled.div`
   color: #000;
 `;
 
-const image = "./images/phonecase.png";
+const CheckoutWrapper = styled.div`
+  animation: ${slideUp} 0.5s ease-in-out;
+  height: 0;
+  overflow: hidden;
+`;
+
+const image = "./images/CaseProduct.png";
 const videoTitle = "My Title My Title My Title My Title My Title My Title ";
 const videoDescription =
   "My Description My Description My Description My Description";
@@ -62,10 +78,21 @@ const productTitle = "Product Title and and and Description";
 const productPrice = "$99.00";
 
 function FeedProduct() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOnClick = () => {
+    console.log("click");
+    setIsOpen(!isOpen);
+  };
+
+  const handleOnCloseCheckout = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       <FeedDescription title={videoTitle} description={videoDescription} />
-      <ProductWrap>
+      <ProductWrap onClick={handleOnClick}>
         <ThumbnailImage>
           <img src={image} style={{ width: "80px", height: "80px" }} />
         </ThumbnailImage>
@@ -74,6 +101,9 @@ function FeedProduct() {
           <Price>{productPrice}</Price>
         </TextContent>
       </ProductWrap>
+      <CheckoutWrapper>
+        {isOpen && <Checkout onClose={handleOnCloseCheckout} />}
+      </CheckoutWrapper>
     </>
   );
 }
