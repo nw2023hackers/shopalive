@@ -8,25 +8,25 @@ import {
   studioProvider, Player
 } from '@livepeer/react';
 
-const playbackId =
-  '6d7el73r1y12chxr';
 
-
- 
- 
 
 
  
+const client = createReactClient({
+  provider: studioProvider({ apiKey: '13b8c6ef-4789-4b6a-b930-b05409be32ff' }),
+});
+ 
+
 const PosterImage = () => {
-  return (
-    <img
-      src="https://docs.livepeer.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fblender-poster.6bbe6a8a.png&w=1920&q=75"
-      
-    />
-  );
-};
+    return (
+      <img
+        src='frontend/public/48357144_270569060299360_7846457525221195776_n.jpg'
+        
+      />
+    );
+  };
  
-const DemoPlayer = () => {
+const Watch = (playbackId) => {
   return (
     
     <div>
@@ -48,4 +48,4 @@ const DemoPlayer = () => {
     /> </div>
   );
 };
-export default DemoPlayer;
+export default Watch;
