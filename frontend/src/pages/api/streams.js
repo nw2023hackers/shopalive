@@ -2,33 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
-import {
-	LivepeerConfig,
-	ThemeConfig,
-	createReactClient,
-	studioProvider,
-  } from '@livepeer/react';
-
 import { client, challenge, authenticate, createPost } from '../../api';
 
-
-
 export default function Home() {
-
-	const livepeer = createReactClient({
-	provider: studioProvider({
-	apiKey: "13b8c6ef-4789-4b6a-b930-b05409be32ff"
-	}),
-});
-
-
 
 	
 	/* local state variables to hold user's address and access token */
 	const [address, setAddress] = useState();
 	const [token, setToken] = useState();
-	const [livepeerClient, setLivepeerClient] = useState(livepeer);
-
 	useEffect(() => {
 		/* when the app loads, check to see if the user has already connected their wallet */
 		checkConnection();
@@ -47,8 +28,6 @@ export default function Home() {
 			setAddress(account.result[0]);
 		}
 	}
-
-	
 	async function login() {
 		try {
 			/* first request the challenge from the API server */
@@ -91,10 +70,8 @@ export default function Home() {
 			console.log('Error posting stream: ', err);
 		}
 	}
-	
 
 	return (
-	<LivepeerConfig client={livepeerClient}>
 		<div>
 			{/* if the user has not yet connected their wallet, show a connect button */}
 			{!address && <button onClick={connect}>Connect</button>}
@@ -112,8 +89,5 @@ export default function Home() {
 				</div>
 			)}
 		</div>
-		
-		
-	  </LivepeerConfig>
 	);
 }
