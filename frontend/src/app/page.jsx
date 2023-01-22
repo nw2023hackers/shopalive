@@ -1,38 +1,20 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import { ethers } from 'ethers';
-import {
-	LivepeerConfig,
-	ThemeConfig,
-	createReactClient,
-	studioProvider,
-  } from '@livepeer/react';
-
-import { client, challenge, authenticate, createPost } from '../../api';
-
-
+"use client";
+import { useEffect, useState } from "react";
+import { ethers } from "ethers";
+import { client, challenge, authenticate, createPost } from "../../api";
 
 export default function Home() {
-
-	const livepeer = createReactClient({
-	provider: studioProvider({
-	apiKey: "13b8c6ef-4789-4b6a-b930-b05409be32ff"
-	}),
-});
-
-
-
-	
 	/* local state variables to hold user's address and access token */
 	const [address, setAddress] = useState();
 	const [token, setToken] = useState();
-	const [livepeerClient, setLivepeerClient] = useState(livepeer);
-
+	const [hash, setHash] = useState();
 	useEffect(() => {
+		setToken(localStorage.getItem('authToken'));
+
 		/* when the app loads, check to see if the user has already connected their wallet */
 		checkConnection();
 	}, []);
+
 	async function checkConnection() {
 		const provider = new ethers.providers.Web3Provider(window.ethereum);
 		const accounts = await provider.listAccounts();
@@ -40,6 +22,7 @@ export default function Home() {
 			setAddress(accounts[0]);
 		}
 	}
+
 	async function connect() {
 		/* this allows the user to connect their wallet */
 		const account = await window.ethereum.send('eth_requestAccounts');
@@ -48,7 +31,6 @@ export default function Home() {
 		}
 	}
 
-	
 	async function login() {
 		try {
 			/* first request the challenge from the API server */
@@ -78,20 +60,43 @@ export default function Home() {
 			} = authData;
 			console.log({ accessToken });
 			setToken(accessToken);
+			localStorage.setItem('authToken', accessToken);
 		} catch (err) {
 			console.log('Error signing in: ', err);
 		}
 	}
-	async function createStreamerPost() {
+
+	async function createStreamerPost(profileId, contentURI) {
 		try {
-			const postData = await client.mutate({
+			const result = await client.mutate({
 				mutation: createPost,
+				variables: {
+					profileId,
+					contentURI,
+				},
+				context: {
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				},
 			});
+			console.log(result);
 		} catch (err) {
-			console.log('Error posting stream: ', err);
+			const error = err;
+			console.log('Error posting stream: ', error instanceof Error);
 		}
 	}
-	
+
+	// TAKE THIS OUT LATER
+
+	// const crypto = require('crypto')
+	// function generateMockIpfsUri() {
+	// 	const hash = crypto.randomBytes(32).toString('hex');
+	// 	const ipfsHash = `ipfs://${hash}`;
+	// 	return ipfsHash;
+	// }
+
+	// const ipfsHash = generateMockIpfsUri();
 
 	return (
 	<LivepeerConfig client={livepeerClient}>
@@ -107,8 +112,14 @@ export default function Home() {
 			{/* once the user has authenticated, show them a success message */}
 			{address && token && <h2>Successfully signed in!</h2>}
 			{address && token && (
-				<div onClick={createStreamerPost}>
-					<button>Login</button>
+				<div
+					onClick={createStreamerPost.bind(
+						null,
+						'0x633f',
+						'ipfs://QmPogtffEF3oAbKERsoR4Ky8aTvLgBF5totp5AuF8YN6vl'
+					)}
+				>
+					<button>create stream thing</button>
 				</div>
 			)}
 		</div>

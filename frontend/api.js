@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
-const API_URL = 'https://api-sandbox-mumbai.lens.dev';
+const API_URL = 'https://api-mumbai.lens.dev/';
 
 export const client = new ApolloClient({
 	uri: API_URL,
@@ -25,11 +25,11 @@ export const authenticate = gql`
 `;
 
 export const createPost = gql`
-	mutation CreatePostTypedData {
+	mutation CreatePostTypedData($profileId: String!, $contentURI: String!) {
 		createPostTypedData(
 			request: {
-				profileId: "0x03"
-				contentURI: "ipfs://QmPogtffEF3oAbKERsoR4Ky8aTvLgBF5totp5AuF8YN6vl"
+				profileId: $profileId
+				contentURI: $contentURI
 				collectModule: { freeCollectModule: { followerOnly: false } }
 				referenceModule: { followerOnlyReferenceModule: false }
 			}
@@ -63,3 +63,44 @@ export const createPost = gql`
 		}
 	}
 `;
+
+// replaced
+// export const createPost = gql`
+// 	mutation CreatePostTypedData {
+// 		createPostTypedData(
+// 			request: {
+// 				profileId: "0x03"
+// 				contentURI: "ipfs://QmPogtffEF3oAbKERsoR4Ky8aTvLgBF5totp5AuF8YN6vl"
+// 				collectModule: { freeCollectModule: { followerOnly: false } }
+// 				referenceModule: { followerOnlyReferenceModule: false }
+// 			}
+// 		) {
+// 			id
+// 			expiresAt
+// 			typedData {
+// 				types {
+// 					PostWithSig {
+// 						name
+// 						type
+// 					}
+// 				}
+// 				domain {
+// 					name
+// 					chainId
+// 					version
+// 					verifyingContract
+// 				}
+// 				value {
+// 					nonce
+// 					deadline
+// 					profileId
+// 					contentURI
+// 					collectModule
+// 					collectModuleInitData
+// 					referenceModule
+// 					referenceModuleInitData
+// 				}
+// 			}
+// 		}
+// 	}
+// `;
