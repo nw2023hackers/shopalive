@@ -1,10 +1,9 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import { client, challenge, authenticate, createPost } from '../../api';
 
-export default function Home() {
+export default function Page() {
 	/* local state variables to hold user's address and access token */
 	const [address, setAddress] = useState();
 	const [token, setToken] = useState();
