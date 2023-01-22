@@ -4,6 +4,7 @@ import Filters from "../components/home/Filters";
 import Ad from "../components/home/Ad";
 import Live from "../components/home/Live";
 import TopTen from "../components/home/TopTen";
+import Video from "../components/Video";
 
 export default function Page() {
   return (
@@ -13,6 +14,7 @@ export default function Page() {
       <Ad />
       <Live />
       <TopTen />
+      {/* <Video /> */}
     </div>
   );
 }
