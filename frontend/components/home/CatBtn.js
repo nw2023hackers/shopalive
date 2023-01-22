@@ -8,6 +8,7 @@ const Button = styled.button`
   background: none;
   display: flex;
   flex-direction: column;
+  gap: 0.1rem;
   align-items: center;
   min-width: 3rem;
   max-width: 3rem;
@@ -19,7 +20,7 @@ function CatBtn({ icon, text, href }) {
   return (
     <Link href={href}>
       <Button>
-        <Image src={icon} alt="" width={30} height={30} />
+        <Image src={icon} alt="" width={35} height={35} />
         {text}
       </Button>
     </Link>

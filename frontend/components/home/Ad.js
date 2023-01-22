@@ -3,17 +3,17 @@ import Image from "next/image";
 import styled from "styled-components";
 
 const ImageContainer = styled.div`
-  width: 320px;
-  height: 120px;
+  width: 300px;
+  height: 110px;
   border-radius: 10px;
   overflow: hidden;
-  margin: 2rem auto;
+  margin: 0 auto 10px auto;
 `;
 
 function Ad() {
   return (
     <ImageContainer>
-      <Image src="/images/steve.png" alt="" width={320} height={120} />
+      <Image src="/images/steve.png" alt="" width={300} height={110} />
     </ImageContainer>
   );
 }
