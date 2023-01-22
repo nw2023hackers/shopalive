@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import NavButton from "./NavButton";
 import { House, Fire, MagnifyingGlass, Bag, User } from "phosphor-react";
+import Link from 'next/link';
 
-const NavBar = styled.div`
+const NavBar = styled.nav`
   display: flex;
   position: absolute;
   bottom: 0;
