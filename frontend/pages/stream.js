@@ -1,64 +1,35 @@
 'use client'
+
+
 import * as React from 'react';
-import { useState } from 'react';
-import {   LivepeerConfig,
-    createReactClient,
-    studioProvider, Player, useCreateStream } from '@livepeer/react';
- 
+import {
+  LivepeerConfig,
+  createReactClient,
+  studioProvider, Player
+} from '@livepeer/react';
 
+import Stream from './../components/video/stream'
 
+const handleStreamData = (stream) =>{
+    console.log(stream.playbackId)
+    console.log(stream.streamKey);
+    console.log(stream);
+    console.log("rtmp.livepeer.com/live");
+    // livepeer uses the rtmp ingest protocol which allows it to have 
+    //minimal buffering and low latency streaming
+    
 
-//use streamKey to get key to put to obs
-// rtmpIngestUrl to get url to stream to 
-// playbackId to watch from
+    // return (
 
-const client = createReactClient({
-    provider: studioProvider({ apiKey: '13b8c6ef-4789-4b6a-b930-b05409be32ff' }),
-  });
+    // );
+}
  
-  
-const Stream = () => {
-  const [streamName, setStreamName] = useState('');
-  const {
-    mutate: createStream,
-    data: stream,
-    status,
-  } = useCreateStream(streamName ? { name: streamName } : null);
  
-  const isLoading = useMemo(() => status === 'loading', [status]);
- 
+export default function Streamer(){
   return (
-    <LivepeerConfig client={client}>
-    <div>
-      <input
-        type="text"
-        placeholder="Stream name"
-        onChange={(e) => setStreamName(e.target.value)}
-      />
- 
-      {stream?.playbackId && (
-        <Player
-          title={stream?.name}
-          playbackId={stream?.playbackId}
-          autoPlay
-          muted
-        />
-      )}
- 
-      <div>
-        {!stream && (
-          <button
-            onClick={() => {
-              createStream?.();
-            }}
-            disabled={isLoading || !createStream}
-          >
-            Create Stream
-          </button>
-        )}
-      </div>
-    </div>
-    </LivepeerConfig>
+    
+    <Stream onStreamData={handleStreamData} />
+    
   );
 };
-export default Stream;
+
