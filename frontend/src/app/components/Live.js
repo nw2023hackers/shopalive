@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Video from "../../src/app/components/Video";
-import LiveVideoContainer from "../../src/app/components/LiveVideoContainer";
+import Video from "./Video";
+import LiveVideoContainer from "./LiveVideoContainer";
 
 const VideoList = styled.div`
   display: flex;

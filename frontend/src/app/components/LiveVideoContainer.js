@@ -11,6 +11,7 @@ const VideoContentContainer = styled.div`
 
 const VideoContentWrapper = styled.div`
   display: flex;
+  flex: row;
   width: 130px;
   height: 246px;
   padding-left: 10px;
@@ -22,8 +23,9 @@ function LiveVideoContainer() {
     <>
       <VideoContentWrapper>
         <VideoContentContainer>
-          <Video source="/videos/PhoneCase.mp4" />
+          <Video source="/videos/Umbrella.mp4" />
         </VideoContentContainer>
+        <div>boob</div>
       </VideoContentWrapper>
       <VideoContentWrapper>
         <VideoContentContainer>
@@ -32,12 +34,7 @@ function LiveVideoContainer() {
       </VideoContentWrapper>
       <VideoContentWrapper>
         <VideoContentContainer>
-          <Video source="/videos/Candle.mp4" />
-        </VideoContentContainer>
-      </VideoContentWrapper>
-      <VideoContentWrapper>
-        <VideoContentContainer>
-          <Video source="/videos/Candle2.mp4" />
+          <Video source="/videos/PhoneCase.mp4" />
         </VideoContentContainer>
       </VideoContentWrapper>
       <VideoContentWrapper>
@@ -48,6 +45,16 @@ function LiveVideoContainer() {
       <VideoContentWrapper>
         <VideoContentContainer>
           <Video source="/videos/Paint.mp4" />
+        </VideoContentContainer>
+      </VideoContentWrapper>
+      <VideoContentWrapper>
+        <VideoContentContainer>
+          <Video source="/videos/Candle.mp4" />
+        </VideoContentContainer>
+      </VideoContentWrapper>
+      <VideoContentWrapper>
+        <VideoContentContainer>
+          <Video source="/videos/Candle2.mp4" />
         </VideoContentContainer>
       </VideoContentWrapper>
     </>
