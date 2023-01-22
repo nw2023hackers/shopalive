@@ -14,7 +14,7 @@ const playbackId =
 
  
 const client = createReactClient({
-  provider: studioProvider({ apiKey: '13b8c6ef-4789-4b6a-b930-b05409be32ff' }),
+  provider: studioProvider({ apiKey: '0e8919d3-107b-4f9d-9f19-81b81e1b7b5b' }),
 });
  
 

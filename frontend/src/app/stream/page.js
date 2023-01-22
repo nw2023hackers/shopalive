@@ -1,64 +1,46 @@
 'use client'
+
+
 import * as React from 'react';
-import { useState } from 'react';
-import {   LivepeerConfig,
-    createReactClient,
-    studioProvider, Player, useCreateStream } from '@livepeer/react';
+import {
+  LivepeerConfig,
+  createReactClient,
+  studioProvider, Player
+} from '@livepeer/react';
+
+import Stream from './stream';
+
+const playbackId =
+  '6d7el73r1y12chxr';
+
+
  
-
-
-
-//use streamKey to get key to put to obs
-// rtmpIngestUrl to get url to stream to 
-// playbackId to watch from
-
 const client = createReactClient({
-    provider: studioProvider({ apiKey: '13b8c6ef-4789-4b6a-b930-b05409be32ff' }),
-  });
+  provider: studioProvider({ apiKey: '0e8919d3-107b-4f9d-9f19-81b81e1b7b5b' }),
+});
+
+const handleStreamData = (stream) =>{
+    console.log(stream.playbackId)
+    console.log(stream.streamKey);
+}
  
-  
-const Stream = () => {
-  const [streamName, setStreamName] = useState('');
-  const {
-    mutate: createStream,
-    data: stream,
-    status,
-  } = useCreateStream(streamName ? { name: streamName } : null);
+
+
  
-  const isLoading = useMemo(() => status === 'loading', [status]);
+const PosterImage = () => {
+  return (
+    <img
+      src="https://docs.livepeer.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fblender-poster.6bbe6a8a.png&w=1920&q=75"
+      
+    />
+  );
+};
  
+export default function Streamer(){
   return (
     <LivepeerConfig client={client}>
-    <div>
-      <input
-        type="text"
-        placeholder="Stream name"
-        onChange={(e) => setStreamName(e.target.value)}
-      />
- 
-      {stream?.playbackId && (
-        <Player
-          title={stream?.name}
-          playbackId={stream?.playbackId}
-          autoPlay
-          muted
-        />
-      )}
- 
-      <div>
-        {!stream && (
-          <button
-            onClick={() => {
-              createStream?.();
-            }}
-            disabled={isLoading || !createStream}
-          >
-            Create Stream
-          </button>
-        )}
-      </div>
-    </div>
+       <Stream onStreamData={handleStreamData} />
     </LivepeerConfig>
   );
 };
-export default Stream;
+
