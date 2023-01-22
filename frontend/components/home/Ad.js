@@ -13,7 +13,7 @@ const ImageContainer = styled.div`
 function Ad() {
   return (
     <ImageContainer>
-      <Image src="/images/livepeer.jpg" alt="" width={300} height={140} />
+      <Image src="/images/livepeer.jpg" alt="" width={300} height={150} />
     </ImageContainer>
   );
 }

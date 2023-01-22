@@ -8,7 +8,7 @@ const VideoContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 160px;
-  max-height: 240px;
+  max-height: 260px;
   background-color: grey;
   border-radius: 8px;
   overflow: hidden;
@@ -17,7 +17,7 @@ const VideoContentContainer = styled.div`
 const VideoContentWrapper = styled.div`
   display: inline-block;
   position: relative;
-  max-height: 301px;
+  max-height: 320px;
   white-space: normal;
   margin-left: 10px;
   vertical-align: top;
@@ -51,6 +51,7 @@ const Profile = styled.span`
   letter-spacing: -0.15px;
   margin-left: 6px;
   padding-top: 6px;
+  margin-bottom: 1rem;
 `;
 
 export const VideoComponent = ({ source, description, username }) => {
