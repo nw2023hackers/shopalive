@@ -25,7 +25,7 @@ function LiveVideoContainer() {
         <VideoContentContainer>
           <Video source="/videos/Umbrella.mp4" />
         </VideoContentContainer>
-        <div>boob</div>
+        <div>bob</div>
       </VideoContentWrapper>
       <VideoContentWrapper>
         <VideoContentContainer>

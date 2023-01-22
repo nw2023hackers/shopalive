@@ -46,11 +46,18 @@ const topicOptions = [
 ]
 
 export default function Page() {
-  const [selected, setSelected] = useState([])
+  const [selected, setSelected] = useState(new Set([]))
   
-  const handleSelect = () => {
-    setSelected([...selected, ])
+  const handleSelect = (value) => {
+    const newSelected = new Set(selected)
+    if(newSelected.has(value)) {
+      newSelected.delete(value)
+    } else {
+      newSelected.add(value)
+    }
+    setSelected(newSelected)
   }
+  console.log(selected)
 
   return (
     <OnboardingContainer>
@@ -63,6 +70,8 @@ export default function Page() {
           )
         })}
       </TopicsContainer>
+      {}
+      <button>Continue</button>
     </OnboardingContainer>
   );
 }

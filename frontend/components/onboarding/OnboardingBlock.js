@@ -20,6 +20,7 @@ const OnboardingBlock = ({ value, onSelect }) => {
   const [isSelected, setIsSelected] = useState(false);
   const handleClick = () => {
     setIsSelected(!isSelected)
+    onSelect(value)
   }
   return (
     <OnboardingBlockContainer onClick={handleClick}>
