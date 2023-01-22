@@ -6,13 +6,12 @@ import Link from "next/link";
 const TopTenDiv = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 0.2rem;
   font-family: "Roboto", sans-serif;
 
   min-width: 7rem;
   max-width: 7rem;
-  margin: 10px 0px 10px 10px;
-
-  // border: 1px solid #e0e0e0;
+  margin-left: 10px;
 `;
 
 const ImageContainer = styled.div`
@@ -34,23 +33,23 @@ const InfoContainer = styled.div`
 
 const Title = styled.div`
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 14px;
 `;
 
 const Desc = styled.div`
-  font-size: 0.7rem;
+  font-size: 11px;
 `;
 
 const Price = styled.div`
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 14px;
   float: right;
 `;
 
 function TopTenContainer({ picture, title, desc, price, href }) {
   return (
-    <TopTenDiv>
-      <Link href={href}>
+    <Link href={href}>
+      <TopTenDiv>
         <ImageContainer>
           <Image src={picture} alt="" width={110} height={120} />
         </ImageContainer>
@@ -59,8 +58,8 @@ function TopTenContainer({ picture, title, desc, price, href }) {
           <Desc>{desc}</Desc>
           <Price>{price}</Price>
         </InfoContainer>
-      </Link>
-    </TopTenDiv>
+      </TopTenDiv>
+    </Link>
   );
 }
 

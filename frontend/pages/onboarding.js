@@ -2,14 +2,18 @@
 
 import styled from "styled-components";
 import OnboardingBlock from "../components/onboarding/OnboardingBlock";
+import Button from "../components/Button";
 import { useState } from "react";
+import Router from 'next/router'
 
 const OnboardingContainer = styled.div`
-  display: flex,
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  height: 100%;
+  gap: 2em;
 `;
 
 const TopicsContainer = styled.div`
@@ -29,19 +33,19 @@ const topicOptions = [
   },
   {
     icon: "",
-    value: "Clothes"
+    value: "Audio"
   },
   {
     icon: "",
-    value: "Computers"
+    value: "Home"
   },
   {
     icon: "",
-    value: "Clothes"
+    value: "Kitchen"
   },
   {
     icon: "",
-    value: "Computers"
+    value: "Garden"
   },    
 ]
 
@@ -57,7 +61,10 @@ export default function Page() {
     }
     setSelected(newSelected)
   }
-  console.log(selected)
+
+  const handleStartShopping = () => {
+    Router.push("/home")
+  }
 
   return (
     <OnboardingContainer>
@@ -70,8 +77,7 @@ export default function Page() {
           )
         })}
       </TopicsContainer>
-      {}
-      <button>Continue</button>
+      <Button onClick={handleStartShopping} disabled={selected.size < 3}>Start shopping</Button>
     </OnboardingContainer>
   );
 }
