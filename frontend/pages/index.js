@@ -2,7 +2,9 @@
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { client, challenge, authenticate, createPost } from "./api/api";
+import styled from "styled-components";
 import Router from "next/router";
+import Image from "next/image";
 
 export default function Home() {
   /* local state variables to hold user's address and access token */
@@ -61,7 +63,6 @@ export default function Home() {
           authenticate: { accessToken },
         },
       } = authData;
-      console.log({ accessToken });
       setToken(accessToken);
       localStorage.setItem("authToken", accessToken);
     } catch (err) {
@@ -106,35 +107,26 @@ export default function Home() {
     }
   }
 
-  // TAKE THIS OUT LATER
-
-  // const crypto = require('crypto')
-  // function generateMockIpfsUri() {
-  // 	const hash = crypto.randomBytes(32).toString('hex');
-  // 	const ipfsHash = `ipfs://${hash}`;
-  // 	return ipfsHash;
-  // }
-
-  // const ipfsHash = generateMockIpfsUri();
-
   return (
     <div>
       {/* if the user has not yet connected their wallet, show a connect button */}
       {!address && <button onClick={connect}>Connect</button>}
       {/* if the user has connected their wallet but has not yet authenticated, show them a login button */}
-      {address && !token && (
-        <div onClick={login}>
-          <button>Login</button>
-        </div>
-      )}
-      {/* once the user has authenticated, show them a success message */}
-      {redirect()}
-
-      {/* {address && token && (
-        <div onClick={createStreamerPost}>
-          <button>create stream thing</button>
-        </div>
+      {/* {address && !token && (
+        <Button onClick={login}>
+          <Image src="/login.png" alt="" width={50} height={50} />
+        </Button>
       )} */}
+
+      {address && !token && (
+        <Image
+          src="/images/login.png"
+          width={412}
+          height={915}
+          onClick={login}
+        ></Image>
+      )}
+      {redirect()}
     </div>
   );
 }
