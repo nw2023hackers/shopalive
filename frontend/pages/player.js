@@ -31,7 +31,7 @@ const PosterImage = () => {
  
 const DemoPlayer = () => {
   return (
-    <LivepeerConfig client={client}>
+    
     <div>
     <Player
       title="Waterfalls"
@@ -48,7 +48,7 @@ const DemoPlayer = () => {
         radii: { containerBorderRadius: '10px' },
       }}
      
-    /> </div></LivepeerConfig>
+    /> </div>
   );
 };
 export default DemoPlayer;
