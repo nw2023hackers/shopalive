@@ -3,7 +3,7 @@
 
 import * as React from 'react';
 import {
-  LivepeerConfig,
+  
   createReactClient,
   studioProvider, Player
 } from '@livepeer/react';
@@ -44,8 +44,8 @@ const Watch = (playbackId) => {
         borderStyles: { containerBorderStyle: 'hidden' },
         radii: { containerBorderRadius: '10px' },
       }}
-     
-    /> </div>
+     /> 
+     </div>
   );
 };
 export default Watch;
