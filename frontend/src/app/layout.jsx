@@ -1,6 +1,7 @@
 import "./globals.css";
 import Nav
  from "./components/Nav";
+import Category from "./components/home/Category";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -12,6 +13,9 @@ export default function RootLayout({ children }) {
       <body>
         <Nav />
         {children}
+
+        <Category />
+        
       </body>
     </html>
   );
