@@ -13,6 +13,12 @@ const playbackId =
 
 
  
+<<<<<<< HEAD:frontend/src/app/player/page.js
+const client = createReactClient({
+  provider: studioProvider({ apiKey: '0e8919d3-107b-4f9d-9f19-81b81e1b7b5b' }),
+});
+=======
+>>>>>>> 8693d30cc63d8b1436fb7072fd7fa75304f33c26:frontend/pages/player.js
  
 
 

@@ -15,7 +15,6 @@ const Wrapper = styled.div`
 `;
 
 const ProductPage = styled.div`
-  border: solid 1px black;
   height: 100%;
   position: absolute;
   right: 0;
@@ -127,8 +126,8 @@ const BuyNow = styled.div`
 
 const image = "./images/CaseProduct.png";
 const productDescription =
-  "My Product Description Goes Here. My Product Description Goes Here.";
-const productPrice = "$000.00";
+  "iPhone 11 Pro Max phone case combining trendy marble patterns with dazzling green.";
+const productPrice = "$49.99";
 
 function Checkout({onClose}) {
 

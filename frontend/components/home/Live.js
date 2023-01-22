@@ -7,7 +7,7 @@ import LiveVideoContainer from "../LiveVideoContainer";
 const VideoList = styled.div`
   display: flex;
   overflow-x: scroll;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   // overflow-y: hidden;
   // white-space: nowrap;
 `;

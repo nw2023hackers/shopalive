@@ -1,23 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Video from "./Video";
-
+import { useStream, Player } from '@livepeer/react';
+import Router from 'next/router'
 
 const VideoContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 160px;
-  max-height: 240px;
+  width: 150px;
   background-color: grey;
   border-radius: 8px;
   overflow: hidden;
+  max-height: 240px;
 `;
 
 const VideoContentWrapper = styled.div`
   display: inline-block;
   position: relative;
-  max-height: 301px;
+  height: 330px;
   white-space: normal;
   margin-left: 10px;
   vertical-align: top;
@@ -51,13 +52,43 @@ const Profile = styled.span`
   letter-spacing: -0.15px;
   margin-left: 6px;
   padding-top: 6px;
+  margin-bottom: 1rem;
 `;
+
+export const PLAYBACK_ID = '1590hctucq3f2pmw'
+const STREAM_ID = "1590614f-199e-45e5-8ffe-2f4c5b877475"
+
+export const PlayerComponent = ({name, username, onClick}) => {
+  return(
+    <VideoContentWrapper onClick={onClick}>
+          {/* <Player playbackId={PLAYBACK_ID} autoPlay height={"300px"} theme={{
+      containerBorderRadius: '8px'
+    }}/> */}
+    <VideoContentContainer>
+    {/* <video 
+      preload="auto"
+      width="200px"
+      height={"300px"} playsinline="true" controls loop autoPlay muted>
+      <source src={`https://lp-playback.com/hls/${PLAYBACK_ID}/index.m3u8`} type={"application/vnd.apple.mpegurl"} />
+    </video> */}
+    {/* <Video source={`https://lp-playback.com/hls/${PLAYBACK_ID}/index.m3u8`} height={"300px"} isPlayer={true}>
+    </Video> */}
+    <Player playbackId={PLAYBACK_ID} autoPlay controls={{hotkeys: false}} theme={{
+      containerBorderRadius: '8px'
+    }} aspectRatio="9to16"/>
+    </VideoContentContainer>
+    <StreamTitle>{name}</StreamTitle>
+    <Profile>{username}</Profile>
+  </VideoContentWrapper>
+  )
+
+}
 
 export const VideoComponent = ({ source, description, username }) => {
   return (
     <VideoContentWrapper>
       <VideoContentContainer>
-        <Video source={source} height={"300px"} />
+        <Video source={source} height={"300px"} isPlayer={false}/>
       </VideoContentContainer>
       <StreamTitle>{description}</StreamTitle>
       <Profile>{username}</Profile>
@@ -68,46 +99,60 @@ export const VideoComponent = ({ source, description, username }) => {
 const videos = [
   {
     src: "/videos/PhoneCase.mp4",
-    description: "my description",
+    description: "omg new matcha phone case!!",
     username: "@cowjuh",
   },
   {
     src: "/videos/Wig.mp4",
-    description: "my description",
-    username: "@cowjuh",
+    description: "WIGMAN WIG MAN WIGMAN WIG MAN",
+    username: "@wigman",
   },
   {
     src: "/videos/Umbrella.mp4",
-    description: "my description",
-    username: "@cowjuh",
+    description: "crazy 2 in 1 umbrella pls buy",
+    username: "@umbrellaBRO",
   },
   {
     src: "/videos/Chocolate.mp4",
-    description: "my description",
-    username: "@cowjuh",
+    description: "small business owner selling chocolates!!!",
+    username: "@chochoco",
   },
   {
     src: "/videos/Paint.mp4",
-    description: "my description",
-    username: "@cowjuh",
+    description: "you NEED to try this paint!! (not edible)",
+    username: "@paintaholic",
   },
   {
     src: "/videos/Candle.mp4",
-    description: "my description",
-    username: "@cowjuh",
+    description: "my candle molds >w<",
+    username: "@cuwuandle",
   },
   {
     src: "/videos/Candle2.mp4",
-    description: "my description",
-    username: "@cowjuh",
+    description: "i sell REAL candles and NOT molds!!",
+    username: "@andlcity",
   },
 ];
 
-
-
 function LiveVideoContainer() {
+  const [live, setLive] = useState(true);
+  const { data: stream } = useStream(STREAM_ID);
+
+  const handleClick = () => {
+    Router.push("/livestream")
+  }
+
   return (
     <>
+      {/* {live && (
+        <VideoComponent
+          source={"https://lvpr.tv/?v=1590hctucq3f2pmw"}
+          description={"FIRST TIME GOING LIVE PLS B NICE!"}
+          username={"@spyrux"}
+        />
+      )} */}
+      {stream?.isActive && <PlayerComponent name={stream.name} username={stream.profiles.username} onClick={handleClick}/>}
+      
       {videos.map((video) => {
         return (
           <VideoComponent

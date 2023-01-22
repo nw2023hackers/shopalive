@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 
-export default function Video(props) {
+export default function Video({height, source, isPlayer}) {
   
   return (
-    <video height={props.height} playsinline="true" controls loop autoPlay muted>
-      <source src={props.source} type="video/mp4" />
+    <video 
+      preload="auto"
+      height={height} playsinline="true" controls loop autoPlay muted>
+      <source src={source} type={isPlayer? "application/x-mpegURL" : "video/mp4"} />
     </video>
   );
 }

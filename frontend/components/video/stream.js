@@ -1,10 +1,7 @@
 'use client'
 import * as React from 'react';
 import { useState, useMemo, useEffect } from 'react';
-
-import {   Player, useCreateStream } from '@livepeer/react';
-
- 
+import { Player, useCreateStream } from '@livepeer/react';
 
 
 const handleStreamData = (stream) =>{

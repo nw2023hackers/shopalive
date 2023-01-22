@@ -3,9 +3,8 @@ import Image from "next/image";
 import styled from "styled-components";
 
 const ImageContainer = styled.div`
-  width: 300px;
-  height: 110px;
-  border-radius: 10px;
+  width: 500px;
+  height: 150px;
   overflow: hidden;
   margin: 0 auto 30px auto;
 `;
@@ -13,7 +12,7 @@ const ImageContainer = styled.div`
 function Ad() {
   return (
     <ImageContainer>
-      <Image src="/images/livepeer.jpg" alt="" width={300} height={140} />
+      <Image src="/images/future.png" alt="" width={415} height={200} />
     </ImageContainer>
   );
 }
