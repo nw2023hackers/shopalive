@@ -1,8 +1,7 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import { ethers } from 'ethers';
-import { client, challenge, authenticate, createPost } from '../../api';
+"use client";
+import { useEffect, useState } from "react";
+import { ethers } from "ethers";
+import { client, challenge, authenticate, createPost } from "../../api";
 
 export default function Home() {
 	/* local state variables to hold user's address and access token */
