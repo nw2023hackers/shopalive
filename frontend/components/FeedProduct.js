@@ -61,11 +61,17 @@ const videoDescription =
 const productTitle = "Product Title and and and Description";
 const productPrice = "$99.00";
 
+const handleOnClick = (image, title, price, avatar) => {
+  console.log("hello");
+};
+
 function FeedProduct() {
   return (
     <>
       <FeedDescription title={videoTitle} description={videoDescription} />
-      <ProductWrap>
+      <ProductWrap
+        onClick={handleOnClick(image, productTitle, productPrice)}
+      >
         <ThumbnailImage>
           <img src={image} style={{ width: "80px", height: "80px" }} />
         </ThumbnailImage>

@@ -100,7 +100,7 @@ export default function Page() {
         <PaperPlaneTilt size={40} weight="fill" color="white" />
       </RightAreaBox>
       <LeftAreaBox>
-        <FeedProduct />
+        <FeedProduct avatar={pfp} />
       </LeftAreaBox>
       <Video source="/videos/PhoneCase.mp4" />
     </div>
