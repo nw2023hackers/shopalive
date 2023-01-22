@@ -24,53 +24,12 @@ export const authenticate = gql`
 	}
 `;
 
-export const createPost = gql`
-	mutation CreatePostTypedData($profileId: String!, $contentURI: String!) {
-		createPostTypedData(
-			request: {
-				profileId: $profileId
-				contentURI: $contentURI
-				collectModule: { freeCollectModule: { followerOnly: false } }
-				referenceModule: { followerOnlyReferenceModule: false }
-			}
-		) {
-			id
-			expiresAt
-			typedData {
-				types {
-					PostWithSig {
-						name
-						type
-					}
-				}
-				domain {
-					name
-					chainId
-					version
-					verifyingContract
-				}
-				value {
-					nonce
-					deadline
-					profileId
-					contentURI
-					collectModule
-					collectModuleInitData
-					referenceModule
-					referenceModuleInitData
-				}
-			}
-		}
-	}
-`;
-
-// replaced
 // export const createPost = gql`
-// 	mutation CreatePostTypedData {
+// 	mutation CreatePostTypedData($profileId: String!, $contentURI: String!) {
 // 		createPostTypedData(
 // 			request: {
-// 				profileId: "0x03"
-// 				contentURI: "ipfs://QmPogtffEF3oAbKERsoR4Ky8aTvLgBF5totp5AuF8YN6vl"
+// 				profileId: $profileId
+// 				contentURI: $contentURI
 // 				collectModule: { freeCollectModule: { followerOnly: false } }
 // 				referenceModule: { followerOnlyReferenceModule: false }
 // 			}
@@ -104,6 +63,47 @@ export const createPost = gql`
 // 		}
 // 	}
 // `;
+
+// replaced
+export const createPost = gql`
+	mutation CreatePostTypedData {
+		createPostTypedData(
+			request: {
+				profileId: "0x633f"
+				contentURI: "ipfs://bafkreiai2czqcucpsb5hkwf5u2n3fgcpy2i6p2rjigo7ymhcuko4vjd454"
+				collectModule: { freeCollectModule: { followerOnly: false } }
+				referenceModule: { followerOnlyReferenceModule: false }
+			}
+		) {
+			id
+			expiresAt
+			typedData {
+				types {
+					PostWithSig {
+						name
+						type
+					}
+				}
+				domain {
+					name
+					chainId
+					version
+					verifyingContract
+				}
+				value {
+					nonce
+					deadline
+					profileId
+					contentURI
+					collectModule
+					collectModuleInitData
+					referenceModule
+					referenceModuleInitData
+				}
+			}
+		}
+	}
+`;
 
 export const getProfile = gql`
 	query Profile {
