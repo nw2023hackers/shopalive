@@ -4,10 +4,10 @@ import { useState } from "react";
 const IconContainer = styled.div`
   padding: 20px;
   border-radius: 10px;
-  background: #D9D9D9;
+  background: #f1f1f1;
   ${props => props.selected && `
-    outline: 1px solid blue;
-  
+    background: #4d6bf3;
+    color: white;
   `}
 `;
 
@@ -23,10 +23,7 @@ const OnboardingBlock = ({ value, onSelect }) => {
     onSelect(value)
   }
   return (
-    <OnboardingBlockContainer onClick={handleClick}>
-      <IconContainer selected={isSelected}/>
-      {value}
-    </OnboardingBlockContainer>
+      <IconContainer selected={isSelected} onClick={handleClick}>{value}</IconContainer>
   );
 };
 

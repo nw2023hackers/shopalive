@@ -4,27 +4,29 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Button = styled.button`
-  border: none;
   background: none;
   display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
+  flex-direction: row;
+  gap: 0.2rem;
   align-items: center;
-  min-width: 3rem;
-  max-width: 3rem;
 
   font-size: 0.6rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #e0e0e0;
 `;
 
-function CatBtn({ icon, text, href }) {
+function FiltersContainer({ icon, text, icon2, href }) {
   return (
     <Link href={href}>
       <Button>
-        <Image src={icon} alt="" width={35} height={35} />
+        {icon}
         {text}
+        {icon2}
       </Button>
     </Link>
   );
 }
 
-export default CatBtn;
+export default FiltersContainer;
