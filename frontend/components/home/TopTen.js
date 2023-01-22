@@ -13,10 +13,16 @@ const TopTenDiv = styled.div`
   font-family: "Roboto", sans-serif;
 `;
 
+const Title = styled.h1`
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0px 0px 0.2rem 10px;
+`;
+
 function TopTen() {
   return (
     <>
-      <h2>Top Ten</h2>
+      <Title>Top Ten</Title>
       <Content>
         <TopTenDiv>
           <TopTenContainer

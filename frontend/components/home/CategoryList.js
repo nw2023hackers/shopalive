@@ -4,14 +4,15 @@ import styled from "styled-components";
 import CatBtn from "./CatBtn";
 
 const Category = styled.div`
+  margin: 15px auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 `;
 
 function CategoryList() {
   return (
     <>
-      <h2>Categories</h2>
       <Category>
         <CatBtn icon="/cosmetics.png" text="Beauty" href="" />
         <CatBtn icon="/diet.png" text="Food" href="" />
@@ -20,7 +21,7 @@ function CategoryList() {
         <CatBtn icon="/blocks.png" text="Kids" href="" />
         <CatBtn icon="/pets.png" text="Pets" href="" />
         <CatBtn icon="/laptop.png" text="Electronics" href="" />
-        <CatBtn icon="/workspace.png" text="Office" href="" />
+        {/* <CatBtn icon="/workspace.png" text="Office" href="" /> */}
       </Category>
     </>
   );

@@ -16,7 +16,7 @@ const VideoContentContainer = styled.div`
 const VideoContentWrapper = styled.div`
   display: inline-block;
   position: relative;
-  min-height: 316px;
+  max-height: 301px;
   white-space: normal;
   margin-left: 10px;
   vertical-align: top;
@@ -52,66 +52,68 @@ const Profile = styled.span`
   padding-top: 6px;
 `;
 
-export const VideoComponent = ({source, description, username}) => {
-  return(
+export const VideoComponent = ({ source, description, username }) => {
+  return (
     <VideoContentWrapper>
       <VideoContentContainer>
-        <Video source={source} height={"300px"}/>
-      </VideoContentContainer>  
-      <StreamTitle>
-          {description}
-        </StreamTitle>
-        <Profile>{username}</Profile>
+        <Video source={source} height={"300px"} />
+      </VideoContentContainer>
+      <StreamTitle>{description}</StreamTitle>
+      <Profile>{username}</Profile>
     </VideoContentWrapper>
-  )
-}
+  );
+};
 
 const videos = [
   {
     src: "/videos/PhoneCase.mp4",
     description: "my description",
-    username: "@cowjuh"
+    username: "@cowjuh",
   },
   {
     src: "/videos/Wig.mp4",
     description: "my description",
-    username: "@cowjuh"
+    username: "@cowjuh",
   },
   {
     src: "/videos/Umbrella.mp4",
     description: "my description",
-    username: "@cowjuh"
+    username: "@cowjuh",
   },
   {
     src: "/videos/Chocolate.mp4",
     description: "my description",
-    username: "@cowjuh"
+    username: "@cowjuh",
   },
   {
     src: "/videos/Paint.mp4",
     description: "my description",
-    username: "@cowjuh"
+    username: "@cowjuh",
   },
   {
     src: "/videos/Candle.mp4",
     description: "my description",
-    username: "@cowjuh"
+    username: "@cowjuh",
   },
   {
     src: "/videos/Candle2.mp4",
     description: "my description",
-    username: "@cowjuh"
-  }
-]
+    username: "@cowjuh",
+  },
+];
 
 function LiveVideoContainer() {
   return (
     <>
-    {videos.map((video) => {
-      return(
-        <VideoComponent source={video.src} description={video.description} username={video.username}/>
-      )
-    })}
+      {videos.map((video) => {
+        return (
+          <VideoComponent
+            source={video.src}
+            description={video.description}
+            username={video.username}
+          />
+        );
+      })}
     </>
   );
 }
