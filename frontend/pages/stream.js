@@ -44,7 +44,7 @@ export default function Streamer(){
 
   return (
     <div>
-      <h2 idName={pageTitle}>STREAMER DASHBOARD</h2>
+      <h2 idname={pageTitle}>STREAMER DASHBOARD</h2>
       <div className={"uploadContainer"}>
       <Upload />
       </div>

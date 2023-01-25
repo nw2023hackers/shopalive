@@ -1,0 +1,4 @@
+{
+  "mongoURI":
+    "mongodb+srv://dev:FutureStore@cluster0.zivzvt7.mongodb.net/?retryWrites=true&w=majority"
+}
